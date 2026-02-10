@@ -1,0 +1,145 @@
+:root {
+  --ntoc-outline-width: 260px;
+}
+
+/* Outline panel */
+.ntoc-outline {
+  display: none;
+  width: var(--ntoc-outline-width);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 100;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.ntoc-outline.show {
+  display: block !important;
+}
+
+.ntoc-outline.show + .notion-scroller.vertical {
+  width: calc(100% - var(--ntoc-outline-width)) !important;
+}
+
+/* Layout */
+.ntoc-outline .ntoc-toc {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ntoc-outline .ntoc-title {
+  padding: 12px 16px 8px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.ntoc-outline .ntoc-title:hover {
+  opacity: 0.7;
+}
+
+.ntoc-outline .ntoc-blocks {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+/* Heading entries */
+.ntoc-outline .ntoc-block a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.ntoc-outline .ntoc-btn {
+  padding: 4px 16px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 80ms ease-in;
+}
+
+.ntoc-outline .ntoc-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Indentation */
+.ntoc-outline .ntoc-h1 { margin-left: 0; }
+.ntoc-outline .ntoc-h2 { margin-left: 16px; }
+.ntoc-outline .ntoc-h3 { margin-left: 32px; }
+
+/* Toggle button */
+.ntoc-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  height: 28px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  margin-right: 2px;
+  transition: background 80ms ease-in;
+}
+
+/* ========== Light theme ========== */
+.notion-light-theme .ntoc-outline {
+  background: white;
+  border-left: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.notion-light-theme .ntoc-outline .ntoc-title {
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.notion-light-theme .ntoc-outline .ntoc-block {
+  color: rgba(55, 53, 47, 0.6);
+}
+
+.notion-light-theme .ntoc-outline .ntoc-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.notion-light-theme .ntoc-toggle-btn {
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.notion-light-theme .ntoc-toggle-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+/* ========== Dark theme ========== */
+.notion-dark-theme .ntoc-outline {
+  background: rgb(25, 25, 25);
+  border-left: 1px solid rgba(255, 255, 255, 0.094);
+}
+
+.notion-dark-theme .ntoc-outline .ntoc-title {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.notion-dark-theme .ntoc-outline .ntoc-block {
+  color: rgb(155, 155, 155);
+}
+
+.notion-dark-theme .ntoc-outline .ntoc-btn:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.notion-dark-theme .ntoc-toggle-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.notion-dark-theme .ntoc-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
